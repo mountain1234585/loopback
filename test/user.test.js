@@ -9,6 +9,8 @@ var User, AccessToken;
 var async = require('async');
 
 describe('User', function() {
+  this.timeout(10000);
+
   var validCredentialsEmail = 'foo@bar.com';
   var validCredentials = { email: validCredentialsEmail, password: 'bar' };
   var validCredentialsEmailVerified = {
@@ -1674,7 +1676,7 @@ describe('User', function() {
           .end(function(err, res) {
             if (err) return done(err);
 
-            assert.deepEqual(res.body, { });
+            assert.deepEqual(res.body, '');
 
             done();
           });
